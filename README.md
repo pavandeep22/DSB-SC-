@@ -47,15 +47,34 @@ Model Waveform
 
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
-Program
+Program :
+```
+Am=4.2;
+Ac=8.4;
+fm=368;
+fc=3680;
+fs=368000;
+t=0:1/fs:2/fm;
+m=Am*cos(2*3.14*fm*t);
+subplot(3,1,1);
+plot(t,m);
+c=Ac*cos(2*3.14*fc*t);
+subplot(3,1,2);
+plot(t,c);
+s1=(Ac+m).*cos(2*3.14*fc*t);
+s2=(Ac-m).*cos(2*3.14*fc*t);
+s=s1-s2;
+subplot(3,1,3);
+plot(t,s);
+```
 
 Output Graph
-
+<img width="703" height="679" alt="image" src="https://github.com/gaurav12360/DSBSC-/blob/main/graph.dsbsc.png?raw=true" />
 
 Tablular Column
+![WhatsApp Image 2025-10-15 at 8 49 28 PM](https://github.com/user-attachments/assets/32a83962-045b-4378-bfa7-161874a67959)
 
 
 Result
 
 Thus the DSB-SC-AM Modulation and Demodulation is generated.
-
