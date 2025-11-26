@@ -1,20 +1,15 @@
-# DSBSC
+# EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
 
-
-EX NO: 2	DSB-SC-AM MODULATOR AND DEMODULATOR
-
-AIM:
-
+### AIM:
 To write a program to perform DSBSC modulation and demodulation using SCI LAB and study its spectral characteristics
 
-EQUIPMENTS REQUIRED
-
+### EQUIPMENTS REQUIRED
 •	Computer with i3 Processor
-•	SCI LAB
 
+•	SCI LAB software
 Note: Keep all the switch faults in off position
 
-Algorithm:
+### Algorithm:
 
 1.	Define Parameters:
 •	Fs: Sampling frequency.
@@ -43,38 +38,44 @@ PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Model Waveform
+### Model Waveform
 
 <img width="703" height="679" alt="image" src="https://github.com/user-attachments/assets/e7c7c7f8-ccf2-41ac-b1f3-325989941a6f" />
 
-Program :
+### Program
 ```
-Am=4.2;
-Ac=8.4;
-fm=368;
-fc=3680;
-fs=368000;
+ac=18.2;
+Am=9.1;
+fc=4800;
+fm=480;
+fs=950000;
 t=0:1/fs:2/fm;
-m=Am*cos(2*3.14*fm*t);
+wc=2*3.14*fc;
+wm=2*3.14*fm;
+e1=(Am*sin(wm*t));
 subplot(3,1,1);
-plot(t,m);
-c=Ac*cos(2*3.14*fc*t);
+plot(t,e1);
+title("Modulating signal");
+xgrid
+e2=(ac*sin(wc*t));
 subplot(3,1,2);
-plot(t,c);
-s1=(Ac+m).*cos(2*3.14*fc*t);
-s2=(Ac-m).*cos(2*3.14*fc*t);
-s=s1-s2;
+plot(t,e2);
+title("Carrier signal");
+xgrid
+e3=(Am/2.*cos(wc*t-wm*t))-(Am/2.*cos(wc*t+wm*t));
 subplot(3,1,3);
-plot(t,s);
+plot(t,e3);
+title("Double side band suppressed carrier");
+xgrid
+
 ```
-
-Output Graph
-<img width="703" height="679" alt="image" src="https://github.com/gaurav12360/DSBSC-/blob/main/graph.dsbsc.png?raw=true" />
-
-Tablular Column
-![WhatsApp Image 2025-10-15 at 8 49 28 PM](https://github.com/user-attachments/assets/32a83962-045b-4378-bfa7-161874a67959)
+### Output Graph
+<img width="757" height="597" alt="DSB-AM" src="https://github.com/user-attachments/assets/b83574f9-3993-4314-b80e-fe07cf34ddb9" />
 
 
-Result
+### Tablular Column
+![WhatsApp Image 2025-11-26 at 18 23 33_fe507ea2](https://github.com/user-attachments/assets/197d5820-5168-427f-bde9-0fd1611b1ebb)
 
+
+### Result
 Thus the DSB-SC-AM Modulation and Demodulation is generated.
